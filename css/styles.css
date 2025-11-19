@@ -10999,7 +10999,7 @@ section.resume-section .resume-section-content {
     
     /* 關鍵：初始寬度設為 0，等待 JavaScript 載入後觸發動畫 */
     width: 0;
-    height: 18px;     
+      
     /* 關鍵：動畫設定 - 實現寬度平滑增長效果（1.5 秒） */
     transition: width 1.5s ease-out; 
 }
