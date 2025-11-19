@@ -32,14 +32,19 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-    // START: 技能進度條動畫腳本
-    // 確保在文件載入完成後，進度條的寬度被設定為目標百分比
-    const progressBars = document.querySelectorAll('.progress-bar');
+    // START: 技能進度條動畫腳本 (已優化，使用 setTimeout 確保動畫觸發)
     
-    progressBars.forEach(bar => {
-        const level = bar.getAttribute('data-level');
-        bar.style.width = level; // 設置寬度，觸發 CSS transition 動畫
-    });
+    // 將動畫邏輯延遲執行，確保瀏覽器讀取到初始 width: 0 的狀態
+    setTimeout(() => {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        
+        progressBars.forEach(bar => {
+            const level = bar.getAttribute('data-level');
+            // 設置寬度，觸發 CSS transition 動畫
+            bar.style.width = level; 
+        });
+    }, 100); // 延遲 100 毫秒
+
     // END: 技能進度條動畫腳本
     
 });
