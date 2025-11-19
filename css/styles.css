@@ -10971,3 +10971,46 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+
+/* --- START: 技能進度條自定義樣式 (Custom Progress Bar Styles) --- */
+
+/* 外層容器：決定進度條的總長度與高度 */
+.progress-bar-container {
+    width: 100%;
+    /* 使用 Bootstrap 變量 --bs-gray-200，即淺灰色底 */
+    background-color: var(--bs-gray-200); 
+    border-radius: 50px; /* 圓角膠囊形狀 */
+    margin-bottom: 15px;
+    height: 18px; /* 較為纖細的高度 */
+    overflow: hidden;
+}
+
+/* 實際進度條：會填充顏色與跑動畫的部分 */
+.progress-bar {
+    height: 100%;
+    /* 使用您網站的主色 --bs-primary: #8acd5b (綠色系) */
+    background-color: var(--bs-primary); 
+    color: white;
+    font-size: 10px; /* 文字較小 */
+    font-weight: bold;
+    text-align: right;
+    padding-right: 8px;
+    line-height: 18px; /* 垂直居中 */
+    
+    /* 關鍵：初始寬度設為 0，等待 JavaScript 載入後觸發動畫 */
+    width: 0;
+    
+    /* 關鍵：動畫設定 - 實現寬度平滑增長效果（1.5 秒） */
+    transition: width 1.5s ease-out; 
+}
+
+/* --- 根據 data-level 屬性設定進度條最終寬度 (由 JavaScript 觸發) --- */
+/* 這些是讓瀏覽器知道動畫應該跑到哪裡 */
+.progress-bar[data-level="40%"] { width: 40%; }
+.progress-bar[data-level="50%"] { width: 50%; }
+.progress-bar[data-level="60%"] { width: 60%; }
+.progress-bar[data-level="70%"] { width: 70%; }
+.progress-bar[data-level="75%"] { width: 75%; }
+.progress-bar[data-level="80%"] { width: 80%; }
+
+/* --- END: 技能進度條自定義樣式 --- */
