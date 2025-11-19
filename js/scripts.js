@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
 * Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
 * Copyright 2013-2023 Start Bootstrap
@@ -31,4 +32,14 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // START: 技能進度條動畫腳本
+    // 確保在文件載入完成後，進度條的寬度被設定為目標百分比
+    const progressBars = document.querySelectorAll('.progress-bar');
+    
+    progressBars.forEach(bar => {
+        const level = bar.getAttribute('data-level');
+        bar.style.width = level; // 設置寬度，觸發 CSS transition 動畫
+    });
+    // END: 技能進度條動畫腳本
+    
 });
