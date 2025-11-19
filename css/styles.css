@@ -11014,3 +11014,43 @@ section.resume-section .resume-section-content {
 .progress-bar[data-level="80%"] { width: 80%; }
 
 /* --- END: 技能進度條自定義樣式 --- */
+
+
+/* --- PORTFOLIO 卡片樣式 (提升視覺化效果) --- */
+
+/* 讓整個卡片都可以點擊 (覆蓋 a 標籤的預設樣式) */
+.card-link-wrapper {
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    color: inherit; /* 繼承父元素文字顏色 */
+}
+
+/* 讓卡片在滑鼠懸停時有抬升效果 */
+.portfolio-card {
+    border: none; /* 移除預設的邊框 */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    /* 啟用 CSS 過渡效果 (動態效果) */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px); /* 懸停時輕微上移 5px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* 增加陰影，看起來像浮起來 */
+}
+
+/* 確保圖片填滿卡片上方 */
+.portfolio-card .card-img-top {
+    width: 100%;
+    /* 統一設定圖片高度，讓排版對齊 */
+    height: 200px; 
+    object-fit: cover; /* 確保圖片不變形，填滿空間 */
+}
+
+/* 確保卡片內文字有足夠的對比度 */
+.portfolio-card .card-title {
+    color: var(--bs-dark) !important; 
+    font-weight: 700;
+}
